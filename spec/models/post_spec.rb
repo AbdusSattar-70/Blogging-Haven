@@ -10,7 +10,8 @@ RSpec.describe Post, type: :model do
   describe 'Validations' do
     let(:user) { User.create(name: 'Abdus Sattar', posts_counter: 0) }
     subject do
-      Post.new(author_id: user.id, title: 'This is a test title', text: 'This is my post', comments_counter: 1, likes_counter: 1)
+      Post.new(author_id: user.id, title: 'This is a test title', text: 'This is my post', comments_counter: 1,
+               likes_counter: 1)
     end
 
     it 'validates presence and length of title' do

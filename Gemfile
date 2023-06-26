@@ -77,3 +77,5 @@ group :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
+# use for checking if a specifice templete(views) is rendered or not
+gem 'rails-controller-testing'

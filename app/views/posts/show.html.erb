@@ -1,1 +1,16 @@
-<h1> Each post details will show here<h1>
+<section class = 'postDetails'>
+<button> <%= link_to 'Home', root_path %> </button>
+<div class='posts'>
+<h3><%= @post.title %> by <%= link_to @post.author.name, user_path(@user) %></h3>
+<p><%= @post.text %></p>
+<p> Comments:<%= @post.comments_counter %> Likes:<%= @post.likes_counter %></p>
+</div>
+<div class='Comments'>
+<% @post.recent_comments.each do |comment| %>
+<p> <%= link_to comment.author.name, user_path(@user)%> : <%= comment.text %></p>
+<% end %>
+</div>
+
+</section>
+
+

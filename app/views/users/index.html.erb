@@ -1,1 +1,16 @@
-<h1> All users lists will show here<h1>
+<section class = 'homePage'>
+<div class= 'welcome'>
+<h1> Welcome to Blogging Haven! </h1>
+<h4> To see individual details click on their name</h4>
+</div>
+
+<div class='user'>
+  <% @users.each do |user| %>
+    <img class='userImg' src ='<%=user.photo%>'/>
+    <div class='usernamePostCount'>
+    <h2 class= 'username'><%= link_to user.name, user_path(user) %></h2>
+    <p class ='postCount'> Number of posts: <%= user.posts_counter %></p>
+    </div>
+  <% end %>
+</div>
+</section>

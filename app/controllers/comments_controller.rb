@@ -6,16 +6,11 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = @post.comments.new(comment_params.merge(author: current_user))
-
-    respond_to do |format|
-      if @comment.save
-        format.html do
-          redirect_to user_post_path(@post.author, @post), flash: { success: 'Comment added successfully' }
-        end
-      else
-        format.html { render :new, status: :unprocessable_entity }
-      end
+    @comment = @post.comments.new(author: current_user, **comment_params)
+    if @comment.save
+      redirect_to user_post_path(@post.author, @post), notice: 'Comment added successfully'
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 

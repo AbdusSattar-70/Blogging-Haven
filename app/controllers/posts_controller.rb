@@ -1,33 +1,31 @@
 class PostsController < ApplicationController
-  before_action :set_user, only: %i[index new show create]
-
   def index
+    @user = User.find(params[:user_id])
     @posts = @user.posts
   end
 
-  def new
-    @post = @user.posts.build
-  end
-
-  def create
-    @post = @user.posts.build(post_params)
-
-    if @post.save
-      redirect_to user_posts_path, notice: 'Post Created Successfully'
-    else
-      render :new, status: :unprocessable_entity
-    end
-  end
-
   def show
+    @user = User.find(params[:user_id])
     @post = @user.posts.find(params[:id])
   end
 
-  private
-
-  def set_user
-    @user = User.find(params[:user_id])
+  def new
+    @post = Post.new
   end
+
+  def create
+    @post = Post.new(title: post_params[:title], text: post_params[:text], author_id: current_user[:id],
+                     comments_counter: 0, likes_counter: 0)
+
+
+    if @post.save
+      redirect_to user_post_path(current_user, @post), notice: 'Post Created Successfully'
+    else
+      render :new
+    end
+  end
+
+  private
 
   def post_params
     params.require(:post).permit(:title, :text)

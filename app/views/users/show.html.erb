@@ -1,5 +1,6 @@
 <section class='userDetailsCont'>
 <button> <%= link_to 'Home', root_path %> </button>
+<%= flash[:notice]%>
 <div class='user'>
     <img class='userImg' src ='<%=@user.photo%>'/>
     <div class='usernamePostCount'>
@@ -7,6 +8,7 @@
     <p class ='postCount'> Number of posts: <%= @user.posts_counter %></p>
     </div>
 </div>
+<%= link_to 'Create New Post', new_user_post_path(@user) %>
 <div class= 'userBio'>
 <h3>Bio<h3>
 <p > <%= @user.bio %></p>

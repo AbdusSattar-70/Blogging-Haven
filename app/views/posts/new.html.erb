@@ -1,0 +1,19 @@
+<section class='create_new_post'>
+  <h2>Create New Post</h2>
+  <div class="back_btn_div">
+    <%= link_to 'Home', root_path %>
+<%= link_to 'My Page', user_path(current_user) %>
+  </div>
+  <div class="add_new_post">
+   <%= form_with(model: @post, url: '/users/:user_id/posts' ) do |f| %>
+      <%= f.label :title %>
+      <div class="new_post_title">
+        <%= f.text_field :title %>
+      </div>
+      <div class="new_post_text">
+        <%= f.text_area :text, placeholder: 'Write your post here' %>
+      </div>
+      <%= f.submit class: 'create_post_btn' %>
+    <% end %>
+  </div>
+</section>

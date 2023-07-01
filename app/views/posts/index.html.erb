@@ -8,19 +8,7 @@
     </div>
 </div>
 <div>
-   <%@posts.each do |post|  %>
-  <div class="postItem">
-    <h3><%= post.title %> <%= link_to 'see details', user_post_path(@user, post) %></h3>
-    <p><%= post.text %></p>
-    <p> Comments:<%= post.comments_counter %> Likes:<%= post.likes_counter %></p>
-  <div>
+ <%# from posts_helper module %>
+  <%= show_posts_comments_lists(@posts) %>
 </div>
-<div class='Comments'>
-<% post.recent_comments.each do |comment| %>
-<p> <%= link_to comment.author.name, user_path(@user)%> : <%= comment.text %></p>
-<% end %>
-</div>
-<% end %>
-
 </section>
-

@@ -1,27 +1,12 @@
 <section class='userDetailsCont'>
 <button> <%= link_to 'Home', root_path %> </button>
 <%= flash[:notice]%>
-<div class='user'>
-    <img class='userImg' src ='<%=@user.photo%>'/>
-    <div class='usernamePostCount'>
-    <h2 class= 'username'><%= link_to @user.name, user_path(@user) %></h2>
-    <p class ='postCount'> Number of posts: <%= @user.posts_counter %></p>
-    </div>
-</div>
+<%= show_single_user(@user)%>
 <%= link_to 'Create New Post', new_user_post_path(@user) %>
 <div class= 'userBio'>
 <h3>Bio<h3>
 <p > <%= @user.bio %></p>
 </div>
-<div class='posts'>
-  <% @recent_posts.each do |post| %>
-    <div class="postItem">
-      <h3><%= post.title %> <%= link_to 'see details', user_post_path(@user, post) %></h3>
-      <p><%= post.text %></p>
-      <p class='comments_counter'>Comments: <%= post.comments_counter %> Likes: <%= post.likes_counter %></p>
-    </div>
-  <% end %>
-</div>
-
+<%= show_recent_posts(@recent_posts,@user) %>
 <button><%= link_to 'See all posts', user_posts_path(@user) %></button>
 </section>

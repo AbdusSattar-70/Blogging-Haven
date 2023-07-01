@@ -16,11 +16,7 @@
 <%= f.submit "Add Like" ,class: 'add_like_btn'%>
 <% end %>
 </div>
-<div class='Comments'>
-<% @post.recent_comments.each do |comment| %>
-<p> <%= link_to comment.author.name, user_path(@user)%> : <%= comment.text %></p>
-<% end %>
-</div>
+<%= show_few_comments %>
 
 </section>
 

@@ -12,7 +12,7 @@ RSpec.describe 'Users', type: :request do
       expect(response.status).to eq(200)
     end
     it 'includes the correct text placeholders in the response body ' do
-      expect(response.body).to include('All users lists will show here')
+      expect(response.body).to include('Welcome to Blogging Haven!')
     end
     it 'should render index template' do
       expect(response).to render_template(:index)

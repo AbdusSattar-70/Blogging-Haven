@@ -77,7 +77,7 @@ button,
 .title_div {
   display: flex;
   align-items: center;
-  gap:2%;
+  gap: 2%;
   margin: 10px;
 }
 

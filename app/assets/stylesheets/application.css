@@ -39,7 +39,7 @@
 }
 
 .comments_counter {
-  margin-left: 80%;
+  margin-left: 70%;
 }
 
 .username {
@@ -64,9 +64,50 @@
   align-items: center;
 }
 
-button {
+button,
+.create_post {
   font-size: 20px;
   color: aqua;
   padding: 5px;
   margin: 2%;
+}
+
+.add_like_comnt_div,
+.comment_div,
+.title_div {
+  display: flex;
+  align-items: center;
+  gap: 2%;
+  margin: 10px;
+}
+
+.create_new_post {
+  display: flex;
+  flex-direction: column;
+  gap: 15%;
+  margin: 20px;
+}
+
+.back_btn_div {
+  display: flex;
+  gap: 10%;
+}
+
+#post_title {
+  width: 50%;
+  height: 20px;
+  margin: 10px 0 10px 0;
+  padding: 5px;
+}
+
+#post_text {
+  width: 100%;
+  height: 300px;
+  margin: 10px 0 10px 0;
+  padding: 5px;
+}
+
+.bold_text {
+  font-weight: 600;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }

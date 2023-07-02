@@ -8,8 +8,10 @@ module PostsHelper
           concat content_tag(:span, link_to('See Details', user_post_path(post.author, post)))
         end)
         concat content_tag(:p, post.text)
-        concat content_tag(:p, "Comments: #{post.comments_counter} Likes: #{post.likes_counter}")
-        concat display_comments(post.recent_comments)
+        concat content_tag(:p, "Comments: #{post.comments_counter} Likes: #{post.likes_counter}", class: 'bold_text')
+        concat(content_tag(:div, class: 'comments_div') do
+          concat display_comments(post.recent_comments)
+        end)
       end
     end
     output

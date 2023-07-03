@@ -79,3 +79,5 @@ group :test do
 end
 # use for checking if a specifice templete(views) is rendered or not
 gem 'rails-controller-testing'
+# for pagination
+gem 'will_paginate'

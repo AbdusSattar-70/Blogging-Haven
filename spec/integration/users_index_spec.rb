@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'User Index Page', type: :feature do
+RSpec.describe 'User #Index Page', type: :feature do
   before(:each) do
     @user1 = User.create(name: 'Mondol', photo: 'https://example.jpg',
                          bio: 'He is a software engineer from Bangladesh', posts_counter: 1)
@@ -12,10 +12,11 @@ RSpec.describe 'User Index Page', type: :feature do
   end
 
   it 'I can see the username of all other users.' do
-    expect(page).to have_content(@user1.name)
-    expect(page).to have_content(@user2.name)
-    expect(page).to have_content(@user3.name)
+    page.has_content?(@user1.name)
+    page.has_content?(@user2.name)
+    page.has_content?(@user3.name)
   end
+
   it 'I can see the profile picture for each user.' do
     expect(page.html).to include(@user1.photo)
     expect(page.html).to include(@user2.photo)

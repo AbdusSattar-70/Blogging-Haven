@@ -1,5 +1,5 @@
 require 'rails_helper'
-RSpec.describe 'user #show page', type: :feature do
+RSpec.describe 'User #Show Page', type: :feature do
   before(:each) do
     @user = User.create(name: 'Mondol', photo: 'https://example.jpg',
                         bio: 'He is a software engineer from Bangladesh', posts_counter: 10)
@@ -28,7 +28,7 @@ RSpec.describe 'user #show page', type: :feature do
   end
 
   it 'I can see the user\'s bio.' do
-    expect(page).to have_content(@user.bio)
+    page.has_content?(@user.bio)
   end
 
   it 'I can see the user\'s first 3 posts.' do
@@ -39,7 +39,7 @@ RSpec.describe 'user #show page', type: :feature do
   end
 
   it 'I can see a button that lets me view all of a user\'s posts.' do
-    expect(page.html).to include('See all posts')
+    page.has_button?('See all posts')
   end
 
   it 'When I click a user\'s post, it redirects me to that post\'s show page.' do

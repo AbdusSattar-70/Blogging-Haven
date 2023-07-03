@@ -7,6 +7,6 @@
     <p class ='postCount'> Number of posts: <%= @user.posts_counter %></p>
     </div>
 </div>
- <%# from posts_helper module %>
   <%= show_posts_comments_lists(@posts) %>
+  <%= will_paginate @posts, class: 'paginate' %>
 </section>

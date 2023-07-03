@@ -1,7 +1,7 @@
 module PostsHelper
   def show_posts_comments_lists(posts)
     output = ''.html_safe
-    posts.each do |post|
+    posts.includes(:author).each do |post|
       output += content_tag(:div, class: 'postItem') do
         concat(content_tag(:div, class: 'title_div') do
           concat content_tag(:h3, post.title)
@@ -18,7 +18,7 @@ module PostsHelper
   end
 
   def display_comments(comments)
-    comments_html = comments.map do |comment|
+    comments_html = comments.includes(:author).map do |comment|
       content_tag(:p) do
         "#{comment.author.name}: #{comment.text}"
       end

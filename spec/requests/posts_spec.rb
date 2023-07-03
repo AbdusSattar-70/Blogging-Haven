@@ -17,7 +17,7 @@ RSpec.describe 'Posts', type: :request do
     end
 
     it 'includes the correct text placeholders in the response body' do
-      expect(response.body).to include("Number of posts: 0")
+      expect(response.body).to include('Number of posts: 0')
     end
 
     it 'should render index template' do
@@ -27,7 +27,9 @@ RSpec.describe 'Posts', type: :request do
 
   describe 'GET #show for a single post' do
     let(:user) { User.create(name: 'test user', photo: 'https://example.com', bio: 'test user bio', posts_counter: 0) }
-    let(:post) { Post.create(title: 'test post', text: 'test text', comments_counter: 0, likes_counter: 0, author_id: user.id) }
+    let(:post) do
+      Post.create(title: 'test post', text: 'test text', comments_counter: 0, likes_counter: 0, author_id: user.id)
+    end
 
     before :each do
       get user_post_path(user, post)

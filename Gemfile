@@ -81,3 +81,7 @@ end
 gem 'rails-controller-testing'
 # for pagination
 gem 'will_paginate'
+# for making the authentication or login page
+gem 'devise'
+
+gem 'faker'

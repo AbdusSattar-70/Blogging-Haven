@@ -20,8 +20,9 @@ RSpec.describe 'Users', type: :request do
   end
 
   describe 'User => GET/users/id => #show' do
+    let(:user) { User.create(name: 'test user', photo: 'https://example.com', bio: 'test user bio', posts_counter: 0) }
     before :each do
-      get '/users/id'
+      get user_path(user)
     end
     it 'should return success http status' do
       expect(response).to have_http_status(:success)
@@ -30,7 +31,7 @@ RSpec.describe 'Users', type: :request do
       expect(response.status).to eq(200)
     end
     it 'includes the correct text placeholders in the response body ' do
-      expect(response.body).to include('Each user details will show here')
+      expect(response.body).to include('Bio')
     end
     it 'should render index template' do
       expect(response).to render_template(:show)

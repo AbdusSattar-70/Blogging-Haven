@@ -130,9 +130,9 @@ rails s
 
 ## <a> 👤 Rishi Mishra </a>
 
-- GitHub: [AbdusSattar-70](https://github.com/Rishi-Mishra0704)
-- Twitter: [Abdus Sattar](https://twitter.com/RishiMi31357764)
-- LinkedIn: [Abdus Sattar](https://www.linkedin.com/in/rrmishra/)
+- GitHub: [Rishi Mishra](https://github.com/Rishi-Mishra0704)
+- Twitter: [Rishi Mishra](https://twitter.com/RishiMi31357764)
+- LinkedIn: [Rishi Mishra](https://www.linkedin.com/in/rrmishra/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -140,10 +140,6 @@ rails s
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- Project 4: Processing data in models.
-- Project 5: Views.
-- Project 6: Forms
-- Project 7: Validations, Model specs, and n+1 problems.
 - Project 8: Add Devise.
 - Project 9: Add authorization rules.
 - Project 10: Integration specs for Views.

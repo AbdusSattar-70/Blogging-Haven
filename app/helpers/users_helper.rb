@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module UsersHelper
   def render_user_profiles
     output = ''.html_safe

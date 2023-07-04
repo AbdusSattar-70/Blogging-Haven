@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module PostsHelper
   def show_posts_comments_lists(posts)
     output = ''.html_safe

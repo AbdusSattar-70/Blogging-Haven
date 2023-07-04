@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module CommentsHelper
   def show_few_comments
     output = ''.html_safe

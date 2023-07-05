@@ -5,7 +5,7 @@ module PostsHelper
       output += content_tag(:div, class: 'postItem') do
         concat(content_tag(:div, class: 'title_div') do
           concat content_tag(:h3, post.title)
-          concat content_tag(:span, link_to('See Details', user_post_path(post.author, post)))
+          concat content_tag(:span, link_to('See Details', post_path(post.author, post)))
         end)
         concat content_tag(:p, post.text)
         concat content_tag(:p, "Comments: #{post.comments_counter} Likes: #{post.likes_counter}", class: 'bold_text')

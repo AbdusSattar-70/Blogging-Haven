@@ -111,3 +111,17 @@ button,
   font-weight: 600;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+.registration_page {
+  border: 1px solid black;
+  background-color: rgb(187, 245, 226);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: 50px ;
+}
+
+
+.field {
+  margin-top: 5px;
+}

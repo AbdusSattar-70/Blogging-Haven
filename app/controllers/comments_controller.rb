@@ -6,9 +6,9 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = @post.comments.includes(:author).new(:author, **comment_params)
+    @comment = @post.comments.includes(:author).new(author: current_user, **comment_params)
     if @comment.save
-      redirect_to user_post_path(@post.author, @post), notice: 'Comment added successfully'
+      redirect_to user_post_path(current_user, @post), notice: 'Comment added successfully'
     else
       render :new, status: :unprocessable_entity
     end

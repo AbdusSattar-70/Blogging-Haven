@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   devise_scope :user do
     get 'login', to: 'devise/sessions#new'
     get 'sign_up', to: 'devise/registrations#new'
+    delete 'logout', to: 'devise/sessions#destroy'
   end
+
   resources :users, only: %i[index show] do
     resources :posts, only: %i[index new create show] do
       resources :comments, only: %i[new create]

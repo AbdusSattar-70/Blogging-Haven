@@ -41,7 +41,7 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
-  #for showing the email in the browser
+  # for showing the email in the browser
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   config.action_mailer.delivery_method = :letter_opener
   config.action_mailer.perform_deliveries = true
@@ -73,5 +73,4 @@ Rails.application.configure do
 
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
-
 end

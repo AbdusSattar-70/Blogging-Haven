@@ -15,7 +15,7 @@ module UsersHelper
 
   def show_single_user
     content_tag(:div, class: 'user') do
-      concat image_tag(@user.photo, class: 'userImg')
+      concat image_tag(@user.photo, class: 'userImg') if @user.photo.present?
       concat(content_tag(:div, class: 'usernamePostCount') do
         concat content_tag(:h2, link_to(@user.name, user_path(@user)), class: 'username')
         concat content_tag(:p, "Number of posts: #{@user.posts_counter}", class: 'postCount')

@@ -16,6 +16,8 @@ class Post < ApplicationRecord
   private
 
   def update_user_posts_counter
+    return unless new_record?
+
     author.update(posts_counter: author.posts.count + 1)
   end
 end

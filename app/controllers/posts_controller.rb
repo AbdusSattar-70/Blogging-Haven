@@ -14,11 +14,14 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(title: post_params[:title], text: post_params[:text], author_id: current_user[:id],
-                     comments_counter: 0, likes_counter: 0)
+    @post = current_user.posts.new(post_params)
+    @post.comments_counter = 0
+    @post.likes_counter = 0
+
     if @post.save
-      redirect_to user_post_path(current_user, @post), notice: 'Post Created Successfully'
+      redirect_to user_post_path(current_user, @post), notice: 'Post created successfully'
     else
+      flash.now[:alert] = 'Failed to create post'
       render :new
     end
   end

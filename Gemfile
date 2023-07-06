@@ -64,7 +64,7 @@ group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem 'web-console'
 
-   # for generate fake data
+  # for generate fake data
   gem 'faker'
   # for send email
   gem 'letter_opener'

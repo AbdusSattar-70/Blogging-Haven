@@ -1,7 +1,4 @@
-# Blogging-Haven
-
 <a name="readme-top"></a>
-
 <h1> Blogging-Haven</h1>
 
 # 📗 Table of Contents

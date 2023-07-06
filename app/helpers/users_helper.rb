@@ -14,14 +14,17 @@ module UsersHelper
   end
 
   def show_single_user
-    content_tag(:div, class: 'user') do
+  content_tag(:div, class: 'user') do
+    if @user.photo.present?
       concat image_tag(@user.photo, class: 'userImg')
-      concat(content_tag(:div, class: 'usernamePostCount') do
-        concat content_tag(:h2, link_to(@user.name, user_path(@user)), class: 'username')
-        concat content_tag(:p, "Number of posts: #{@user.posts_counter}", class: 'postCount')
-      end)
     end
+    concat(content_tag(:div, class: 'usernamePostCount') do
+      concat content_tag(:h2, link_to(@user.name, user_path(@user)), class: 'username')
+      concat content_tag(:p, "Number of posts: #{@user.posts_counter}", class: 'postCount')
+    end)
   end
+end
+
 
   def show_recent_posts
     content_tag(:div, class: 'posts') do

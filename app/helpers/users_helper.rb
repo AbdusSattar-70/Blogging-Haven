@@ -30,6 +30,7 @@ module UsersHelper
           concat(content_tag(:div, class: 'title_div') do
             concat content_tag(:h3, post.title)
             concat content_tag(:span, link_to('See Details', user_post_path(@user, post)))
+            concat post_delete_button(post.author, post) if can? :destroy, post
           end)
           concat content_tag(:p, post.text)
           concat(content_tag(:p, class: 'comments_counter bold_text') do

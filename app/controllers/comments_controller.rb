@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :find_post, only: [:create]
+  before_action :find_post, only: %i[create new destroy]
 
   def new
     @comment = Comment.new
@@ -12,6 +12,12 @@ class CommentsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+    redirect_back(fallback_location: root_path)
   end
 
   private

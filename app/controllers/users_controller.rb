@@ -1,7 +1,5 @@
-require 'cancancan'
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  load_and_authorize_resource
 
   def index
     @users = User.all
@@ -14,6 +12,9 @@ class UsersController < ApplicationController
     else
       @user = User.find(params[:id])
       @recent_posts = @user.recent_posts
+      @recent_posts.each do |post|
+        @post = post
+      end
     end
   end
 end

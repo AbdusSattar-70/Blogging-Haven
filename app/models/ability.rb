@@ -8,7 +8,7 @@ class Ability
 
     can :manage, Post, author_id: user.id
     can :manage, Comment, author_id: user.id
-    can :create, Post
+    can :create, Post, author_id: user.id
     can :create, Comment
 
     return unless user.admin?

@@ -82,3 +82,5 @@ gem 'rails-controller-testing'
 gem 'will_paginate'
 
 gem 'devise'
+
+gem 'cancancan'

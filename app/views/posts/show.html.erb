@@ -3,14 +3,16 @@
   <div class="posts">
     <h3><%= @post.title %> by <%= link_to @post.author.name, user_path(@post.author) %></h3>
     <p><%= @post.text %></p>
+    <% if can? :destroy, @post%>
+      <button>
+      <%= form_with url: "/users/#{@post.author.id}/posts/#{@post.id}" , method: :delete do |f|%>
+        <%= f.submit 'Delete Post' %>
+      <%end%>
+      </button>
+    <%end%>
     <p class="bold_text">Comments: <%= @post.comments_counter %> Likes: <%= @post.likes_counter %></p>
   </div>
   <div class="add_like_comnt_div">
-    <% if notice %>
-      <div class="notice">
-        <%= notice %>
-      </div>
-    <% end %>
     <button><%= link_to 'Add Comment', new_user_post_comment_path(user_id: @post.author, post_id: @post.id) %></button>
     <%= form_with(model: @like, url: user_post_likes_path(@post.author, @post)) do |f| %>
       <%= f.hidden_field :post_id, value: @post.id %>

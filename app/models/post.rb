@@ -3,7 +3,8 @@ class Post < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
 
-  before_save :update_user_posts_counter
+  after_save :update_user_posts_counter
+  after_destroy :update_user_posts_counter
 
   validates :title, presence: true, length: { maximum: 250 }
   validates :comments_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
@@ -16,8 +17,6 @@ class Post < ApplicationRecord
   private
 
   def update_user_posts_counter
-    return unless new_record?
-
-    author.update(posts_counter: author.posts.count + 1)
+    author.update(posts_counter: author.posts.count)
   end
 end

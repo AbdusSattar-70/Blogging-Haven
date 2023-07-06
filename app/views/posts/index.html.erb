@@ -1,0 +1,12 @@
+<section class = 'postList'>
+<button><%= link_to 'Home', root_path %></button>
+<div class='user'>
+    <img class='userImg' src ='<%= @user.photo%>'/>
+    <div class='usernamePostCount'>
+    <h2 class= 'username'><%= link_to @user.name, user_path(@user) %></h2>
+    <p class ='postCount'> Number of posts: <%= @user.posts_counter %></p>
+    </div>
+</div>
+  <%= show_posts_comments_lists(@posts) %>
+  <%= will_paginate @posts, class: 'paginate' %>
+</section>

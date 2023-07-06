@@ -1,0 +1,12 @@
+<section class='userDetailsCont'>
+<button> <%= link_to 'Home', root_path %> </button>
+<%= flash[:notice]%>
+<%= show_single_user%>
+<p class='create_post'><%= link_to 'Create New Post', new_user_post_path(@user) %></p>
+<div class= 'userBio'>
+<h3>Bio<h3>
+<p > <%= @user.bio %></p>
+</div>
+<%= show_recent_posts %>
+<button class='see_all_posts'><%= link_to 'See all posts', user_posts_path(@user) %></button>
+</section>

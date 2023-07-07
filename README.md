@@ -131,6 +131,12 @@ rails s
 - Twitter: [Rishi Mishra](https://twitter.com/RishiMi31357764)
 - LinkedIn: [Rishi Mishra](https://www.linkedin.com/in/rrmishra/)
 
+👤 **Matee Safi**
+
+- GitHub: [@githubhandle](https://github.com/matee-safi)
+- Twitter: [@twitterhandle](https://twitter.com/matee_safi)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/matee-safi/)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->

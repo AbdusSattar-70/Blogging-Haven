@@ -1,15 +1,23 @@
-require 'rails_helper'
+require 'swagger_helper'
 
-# Specs in this file have access to a helper object that includes
-# the Api::V1::PostsHelper. For example:
-#
-# describe Api::V1::PostsHelper do
-#   describe "string concat" do
-#     it "concats two strings with spaces" do
-#       expect(helper.concat_strings("this","that")).to eq("this that")
-#     end
-#   end
-# end
-RSpec.describe Api::V1::PostsHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+RSpec.describe 'api/posts', type: :request do
+  path '/api/users/{user_id}/posts' do
+    # You'll want to customize the parameter types...
+    parameter name: 'user_id', in: :path, type: :string, description: 'user_id'
+
+    get('list posts') do
+      response(200, 'successful') do
+        let(:user_id) { '10' }
+
+        after do |example|
+          example.metadata[:response][:content] = {
+            'application/json' => {
+              example: JSON.parse(response.body, symbolize_names: true)
+            }
+          }
+        end
+        run_test!
+      end
+    end
+  end
 end

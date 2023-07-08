@@ -80,9 +80,9 @@ end
 gem 'rails-controller-testing'
 # for pagination
 gem 'will_paginate'
-#for authentication
+# for authentication
 gem 'devise'
-#for authorization
+# for authorization
 gem 'cancancan'
-#for api documentation
+# for api documentation
 gem 'rswag'

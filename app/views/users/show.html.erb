@@ -1,5 +1,5 @@
 <section class='userDetailsCont'>
-<button> <%= link_to 'Home', root_path %> </button>
+<%= navigation %>
 <%= show_single_user%>
 <p class='create_post'><%= link_to 'Create New Post', new_user_post_path(@user) if can? :create, @post %></p>
 <div class= 'userBio'>

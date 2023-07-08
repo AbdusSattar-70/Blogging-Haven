@@ -1,4 +1,5 @@
 <section class="new_comment">
+<%= navigation %>
   <h2>Add New Comment</h2>
   <%= form_with(model: @comment, url: user_post_comments_path) do |f| %>
     <%= f.text_area :text, placeholder: 'Leave a comment here' %> <br>

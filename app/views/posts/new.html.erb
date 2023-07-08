@@ -1,9 +1,6 @@
 <section class='create_new_post'>
+  <%= navigation %>
   <h2>Create New Post</h2>
-  <div class="back_btn_div">
-    <%= link_to 'Home', root_path %>
-<%= link_to 'My Page', user_path(current_user) %>
-  </div>
   <div class="add_new_post">
    <%= form_with(model: @post, url: '/users/:user_id/posts' ) do |f| %>
         <%= f.text_field :title, placeholder: 'Write your post title' %>

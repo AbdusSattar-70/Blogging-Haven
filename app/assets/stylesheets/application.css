@@ -4,8 +4,8 @@
   box-sizing: border-box;
 }
 
-.homePage {
-  background-color: rgb(167, 214, 254);
+body {
+  background: #8ae2faa4;
 }
 
 .welcome {
@@ -67,7 +67,7 @@
 button,
 .create_post {
   font-size: 20px;
-  color: aqua;
+  color: rgb(247, 0, 255);
   padding: 5px;
   margin: 2%;
 }
@@ -88,9 +88,24 @@ button,
   margin: 20px;
 }
 
-.back_btn_div {
+.navigation {
+  position: sticky;
+  top: 0;
+  width: 30%;
+  margin-left: 2%;
+}
+
+.navigation a {
+  text-decoration: none;
+  padding: 3px;
+  font-size: 30px;
+  color: #52f60b;
+  box-shadow: 0 5px 20px 0 rgba(11, 11, 11, 0.5);
+}
+
+.navigation nav {
   display: flex;
-  gap: 10%;
+  justify-content: space-between;
 }
 
 #post_title {
@@ -113,12 +128,12 @@ button,
 }
 
 .registration_page {
+  width: 50%;
   border: 1px solid black;
-  background-color: rgb(187, 245, 226);
   display: flex;
   flex-direction: column;
   text-align: center;
-  margin: 50px;
+  margin: 10px;
 }
 
 .field {

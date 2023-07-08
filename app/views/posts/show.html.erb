@@ -1,5 +1,5 @@
 <section class="postDetails">
-  <button><%= link_to 'Home', root_path %></button>
+<%= navigation %>
   <div class="posts">
     <h3><%= @post.title %> by <%= link_to @post.author.name, user_path(@post.author) %></h3>
     <p><%= @post.text %></p>

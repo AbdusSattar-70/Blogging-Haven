@@ -1,15 +1,52 @@
-require 'rails_helper'
+require 'swagger_helper'
 
-# Specs in this file have access to a helper object that includes
-# the Api::V1::CommentsHelper. For example:
-#
-# describe Api::V1::CommentsHelper do
-#   describe "string concat" do
-#     it "concats two strings with spaces" do
-#       expect(helper.concat_strings("this","that")).to eq("this that")
-#     end
-#   end
-# end
-RSpec.describe Api::V1::CommentsHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+RSpec.describe 'api/comment', type: :request do
+  path '/api/users/{user_id}/posts/{post_id}/comments' do
+    # You'll want to customize the parameter types...
+    parameter name: 'user_id', in: :path, type: :string, description: 'user_id'
+    parameter name: 'post_id', in: :path, type: :string, description: 'post_id'
+
+    get('list comments') do
+      response(200, 'successful') do
+        let(:user_id) { '123' }
+        let(:post_id) { '123' }
+
+        after do |example|
+          example.metadata[:response][:content] = {
+            'application/json' => {
+              example: JSON.parse(response.body, symbolize_names: true)
+            }
+          }
+        end
+        run_test!
+      end
+    end
+  end
+
+  path '/api/posts/{post_id}/comments' do
+    # You'll want to customize the parameter types...
+    parameter name: 'post_id', in: :path, type: :string, description: 'post_id'
+
+    post 'Creates a comments' do
+      tags 'Comments'
+      consumes 'application/json', 'application/xml'
+      parameter name: :comment, in: :body, schema: {
+        type: :object,
+        properties: {
+          text: { type: :string }
+        },
+        required: ['text']
+      }
+
+      response '201', 'Comments created' do
+        let(:comment) { { text: 'Hi there' } }
+        run_test!
+      end
+
+      response '422', 'invalid request' do
+        let(:pet) { { text: 'foo' } }
+        run_test!
+      end
+    end
+  end
 end
